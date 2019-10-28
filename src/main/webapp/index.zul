@@ -1,0 +1,43 @@
+<zk xmlns="http://www.zkoss.org/2005/zul" xmlns:n="http://www.zkoss.org/2005/zk/native">
+	<window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm')@init('com.keylane.view.model.TriangleViewModel')"
+		validationMessages="@id('vmsgs')">
+		
+		
+			<n:h1> Please enter the 3 sides of the triangle. </n:h1>
+	
+		
+		
+		<vlayout>
+		
+			<grid>
+				<columns>
+					<column width="200px"/>
+					<column/>
+				</columns>
+				<rows>
+					<row>
+						<label value="side 1 of triangle : " />
+						<intbox value="@bind(vm.triangle.side1)" constraint="no negative, no zero"/>
+					</row>
+					<row>
+						<label value="side 2 of triangle : " />
+						<intbox value="@bind(vm.triangle.side2)" constraint="no negative, no zero"/>
+					</row>
+					<row>
+						<label value="side 3 of triangle : " />
+						<intbox  value="@bind(vm.triangle.side3)" constraint="no negative, no zero"/>
+					</row>
+					
+					<row>
+						<button label="Find triangle type" onClick="@command('cmd')"/>
+					</row>
+					</rows>
+			</grid>
+			<label value="@bind(vm.triangle.type)" />
+			<image src="@bind(vm.triangle.imageUrl)"/>
+			
+		</vlayout>
+		
+	</window>
+</zk>
